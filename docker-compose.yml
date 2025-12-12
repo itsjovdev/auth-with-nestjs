@@ -9,6 +9,7 @@ services:
     environment:
       - PORT=${PORT}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      - DATABASE_URL=postgresql://postgres:123456@auth-db:5432/auth_db
   auth-db:
     container_name: auth-db
     image: postgres:16.2
@@ -19,5 +20,14 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=123455
+      - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=authdb
+  auth-redis:
+    container_name: auth-redis
+    image: redis:7.2
+    restart: always
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+volumes:
+  redis_data:
