@@ -8,7 +8,8 @@ export const envSchema = z
       .string()
       .min(1, 'ALLOWED_ORIGINS is required.')
       .transform((val) => val.split(',').map((origin) => origin.trim())),
-   
+      DATABASE_URL: z.string().min(1, 'DATABASE_URL  is required.'),
+
   })
   .passthrough();
 
@@ -24,6 +25,7 @@ if (!envParsed.success) {
 export const envs: envType = {
   PORT: envParsed.data.PORT,
   ALLOWED_ORIGINS: envParsed.data.ALLOWED_ORIGINS,
+  DATABASE_URL: envParsed.data.DATABASE_URL,
 
 };
 
