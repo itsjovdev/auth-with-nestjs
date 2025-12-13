@@ -12,8 +12,6 @@ datasource db {
   provider = "postgresql"
 }
 
-
-
 model User {
   id String @id @default(uuid())
 
@@ -27,7 +25,7 @@ model User {
   country     String? @default("ES")
   language    String? @default("es-ES")
 
-   backupEmailConfirm Boolean @default(false)
+  backupEmailConfirm Boolean @default(false)
   phoneConfirm       Boolean @default(false)
 
   twoFactorEnabled Boolean @default(false)
@@ -67,7 +65,6 @@ model Session {
   @@index([userAgent])
   @@index([ipAddress])
 }
-
 
 enum UserStatusEnum {
   ACTIVE

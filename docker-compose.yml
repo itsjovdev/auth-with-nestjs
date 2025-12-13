@@ -10,6 +10,7 @@ services:
       - PORT=${PORT}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
       - DATABASE_URL=postgresql://postgres:123456@auth-db:5432/authdb
+      - REDIS_URL=${REDIS_URL}
   auth-db:
     container_name: auth-db
     image: postgres:16.2
@@ -29,5 +30,7 @@ services:
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
 volumes:
   redis_data:
