@@ -24,7 +24,7 @@ model User {
   password    String?
   country     String? @default("ES")
   language    String? @default("es-ES")
-
+  emailConfirm      Boolean @default(false)
   backupEmailConfirm Boolean @default(false)
   phoneConfirm       Boolean @default(false)
 

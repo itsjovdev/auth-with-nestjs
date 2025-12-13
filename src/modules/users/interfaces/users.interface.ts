@@ -1,6 +1,6 @@
 import { AuthProviderEnum, UserStatusEnum } from "@prisma/client"; // Adjust the import path according to your project structure and prisma schema location, e.g.,
 
-export interface createUserInterface {
+export interface CreateUserInterface {
     name?: string;
     lastName?: string;
     avatar?: string;
@@ -22,7 +22,7 @@ export interface createUserInterface {
     authProvider?: AuthProviderEnum;
 }
 
-export interface updateUserInterface {
+export interface UpdateUserInterface {
 
     name?: string;
     lastName?: string;

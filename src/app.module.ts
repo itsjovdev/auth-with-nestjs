@@ -5,6 +5,7 @@ import KeyvRedis from '@keyv/redis';
 import { Keyv } from 'keyv';
 import { envs } from './config/envs';
 import { UsersModule } from './modules/users/users.module';
+import { TestModule } from './modules/test/test.module';
 
 @Module({
   imports: [ CacheModule.registerAsync({
@@ -17,7 +18,7 @@ import { UsersModule } from './modules/users/users.module';
           ],
         };
       },
-    }), PrismaModule, UsersModule],
+    }), PrismaModule, UsersModule, TestModule],
   controllers: [],
   providers: [],
 })
