@@ -1,5 +1,3 @@
-
-
 import {
   Injectable,
   Logger,
@@ -16,13 +14,8 @@ export class PrismaService
   private readonly logger = new Logger('Auth - App');
 
   async onModuleInit() {
-    try {
-      await this.$connect();
-      this.logger.log('Database Connected');
-    } catch (error) {
-      this.logger.error('Failed to connect to the database', error.stack);
-      throw error;
-    }
+    await this.$connect();
+    this.logger.log('Database Connected');
   }
 
   async onModuleDestroy() {
@@ -30,4 +23,3 @@ export class PrismaService
     this.logger.log('Database Disconnected');
   }
 }
-
